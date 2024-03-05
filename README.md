@@ -1,9 +1,9 @@
 # TiOK-project
-Simple app for displaying posts, comments, album and photos.
+Simple web app for displaying posts, comments, album and photos.
 
 ## Technologies uses
 - `Python 3.6`
-- `Flask`
+- `Flask 3.0.0`
 - `HTML/CSS/JavaScript`
 
 ## What should be included
