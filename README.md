@@ -2,7 +2,7 @@
 Simple web app for displaying posts, comments, album and photos.
 
 ## Technologies uses
-- `Python 3.6`
+- `Python 3.12`
 - `Flask 3.0.0`
 - `HTML/CSS/JavaScript`
 
