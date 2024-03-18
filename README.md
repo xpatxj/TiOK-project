@@ -5,6 +5,7 @@ Simple web app for displaying posts, comments, album and photos.
 - `Python 3.12`
 - `Flask 3.0.0`
 - `HTML/CSS/JavaScript`
+- `Git and Github`
 
 ## What should be included
 * Bug logger
