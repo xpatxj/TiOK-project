@@ -6,6 +6,7 @@ Simple web app for displaying posts, comments, album and photos.
 - `Flask 3.0.0`
 - `HTML/CSS/JavaScript`
 - `Git and Github`
+- `Locust`
 
 ## What should be included
 * Bug logger
