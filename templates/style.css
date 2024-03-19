@@ -1,0 +1,87 @@
+body{
+    background-color:white;
+    }
+h2{
+    font:22px Jaldi;
+    }
+p{
+    font:20px Jaldi;
+    }
+.navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    }
+
+.posts-button,
+.album-button a:hover{
+    width: 250px;
+    height: 55px;
+    background-color: #B784B7;
+    color: #333;
+    text-align: center;
+    line-height: 55px; 
+    }
+    
+.posts-button {
+    position: absolute;
+    top: 50%; 
+    right: calc(50% + 130px); /* Adjust based on navbar width and button size */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    }
+    
+.album-button {
+    position: absolute;
+    top: 50%; /* Position in the middle of the navbar */
+    right: calc(50% - 130px); /* Adjust based on navbar width and button size */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    }
+
+.button.clicked {
+    opacity: 0.5; 
+}
+.searchbar{
+    position: fixed;
+    top: 100px;
+    width: 100%;
+    background-color:#B784B7;
+    height: 50px;
+    padding: 10px;
+    z-index: 1000; 
+}
+.searchbar input[type="text"] {
+    width: calc(100% - 80px);
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    outline: none;
+}
+
+.searchbar button {
+    width: 70px; 
+    height: 36px; 
+    background-color: #B784B7;
+    color: #fff;
+    border: 5px;
+    cursor: pointer;
+}
+
+.numberofposts{
+    font:24px JejuGothic;
+}
+
+.post{
+    background-color:#D9D9D9;
+    width: 260px; 
+    height: 260px; 
+}
+
+h2{
+    font:20px JejuGothic;
+    color: #333;
+}
+p{
+    font:20px Jaldi;
+    color: #333;
+}
