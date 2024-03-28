@@ -61,11 +61,30 @@ p {
     border: none;
     border-radius: 5px;
 }
-
 .numberofposts{
     font:24px JejuGothic;
 }
-
+.post-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 95px;
+    margin-right: 95px;
+    margin-top: 100px;
+}
+.single-post {
+    width: 560px; 
+    height: 460px; 
+    background-color: #ffffff; /* białe tło */
+    border: 1px solid #000000; 
+}
+.comments {
+    width: 260px; 
+    height: 460px; 
+    background-color: #ffd9d9; /* jasnoróżowe tło */
+    border: 1px solid #000000; /* czarna ramka */
+    /* padding: 20px; */
+}
 .post{
     background-color:#D9D9D9;
     width: 260px; 
