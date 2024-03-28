@@ -77,13 +77,14 @@ p {
     height: 460px; 
     background-color: #ffffff; /* białe tło */
     border: 1px solid #000000; 
+    padding: 20px;
 }
 .comments {
     width: 260px; 
     height: 460px; 
     background-color: #ffd9d9; /* jasnoróżowe tło */
     border: 1px solid #000000; /* czarna ramka */
-    /* padding: 20px; */
+    padding: 20px;
 }
 .post{
     background-color:#D9D9D9;
@@ -119,4 +120,14 @@ table {
     height: 230px;
     background-color: #92C952;
     border: 1px solid #ddd;
+}
+
+label[for="title"] {
+    font-size: 44px;
+}
+label[for="writtenby"] {
+    font-size: 10px;
+}
+label[for="body"] {
+    font-size: 20px;
 }
