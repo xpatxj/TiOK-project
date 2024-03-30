@@ -22,6 +22,10 @@ p {
     justify-content: flex-end;
     height: 55px;
 }
+.opacity {
+    opacity: 0.5;
+
+}
 
 .navbar a {
     float: left;
