@@ -23,30 +23,17 @@
         </div> 
     </div>
     <table id="posts">
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        {% for post in posts %}
+        {% if loop.index0 % 4 == 0 %}
+            <tr>
+        {% endif %}
+        <td class="post">
+            <h2>{{ post.title }}</h2>
+        </td>
+        {% if loop.index0 % 4 == 3 %}
+            </tr>
+        {% endif %}
+    {% endfor %}
     </table>
 </body>
 </html>
