@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple Blog</title>
-    <link rel="stylesheet" href="style.css" type="text/css" />
+    <title>Posts</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
 </head>
 <body>
     <div class="navbar">
-        <a href="#">Posts</a>
-        <a href="albums.html">Albums</a>
+        <a href="#" class="opacity">Posts</a>
+        <a href="{{ url_for('albums') }}">Albums</a>
     </div>
     <div class="container">
         <div class="searchbar">

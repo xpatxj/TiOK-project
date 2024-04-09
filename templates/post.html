@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post</title>
+    <link rel="stylesheet" href="C:\Users\Patrycja\Desktop\INF 4 semestr\Testowanie i optymalizacja kodu\TiOK-project\static\style.css" type="text/css" />
+</head>
+<body>
+    <div class="navbar">
+        <a href="#">Posts</a>
+        <a href="{{ url_for('albums') }}">Albums</a>
+    </div>
+    <div class="post-container">
+        <div class="single-post">
+            <label for="title">Title </label><br>
+            <label for="writtenby">Written by: </label><br>
+            <label for="body">Body </label>
+        </div>
+        <div class="comments">
+            <label for="comments">Comments</label><br>
+        </div> 
+    </div>
+</body>
+</html>

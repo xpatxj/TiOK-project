@@ -1,0 +1,243 @@
+<<<<<<< HEAD:templates/style.css
+
+body {
+    background-color:white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+h2{
+    font:22px Jaldi;
+}
+.main {
+    padding: 20px;
+    margin: 20px;
+}
+p {
+    font:20px Jaldi;
+}
+.navbar {
+    background-color: #B784B7;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    height: 55px;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    background-color: #7A80B5;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-right: 50px; 
+    width: 250px; 
+}
+
+.navbar a:hover {
+    opacity: 0.5;
+    color: black;
+}
+.button.clicked {
+    opacity: 0.5; 
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 95px;
+    margin-right: 95px;
+    margin-top: 20px;
+}
+.searchbar{
+    width: 20%;
+    background-color:#B784B7;
+    padding: 10px;
+    z-index: 1000; 
+}
+.searchbar input[type="text"] {
+    background-color:#B784B7;
+    width: 10%;
+    border: none;
+    border-radius: 5px;
+}
+
+.numberofitems{
+    font:24px JejuGothic;
+}
+
+.post{
+    background-color:#D9D9D9;
+    width: 260px; 
+    height: 260px; 
+}
+
+h2{
+    font:20px JejuGothic;
+    color: #333;
+}
+p{
+    font:20px Jaldi;
+    color: #333;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 70px;
+    padding-right: 95px;
+    padding-left: 95px;
+    padding-bottom: 100px;
+}
+
+#posts td {
+    width: 260px;
+    height: 230px;
+    background-color: #D9D9D9;
+    border: 1px solid #ddd;
+}
+
+#albums td {
+    width: 260px;
+    height: 230px;
+    background-color: #92C952;
+    border: 1px solid #ddd;
+}
+=======
+
+body {
+    background-color:white;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+h2{
+    font:22px Jaldi;
+}
+.main {
+    padding: 20px;
+    margin: 20px;
+}
+p {
+    font:20px Jaldi;
+}
+.navbar {
+    background-color: #B784B7;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-end;
+    height: 55px;
+}
+.opacity {
+    opacity: 0.5;
+
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: black;
+    text-align: center;
+    background-color: #7A80B5;
+    padding: 14px 16px;
+    text-decoration: none;
+    margin-right: 50px; 
+    width: 250px; 
+}
+
+.navbar a:hover {
+    opacity: 0.5;
+    color: black;
+}
+.button.clicked {
+    opacity: 0.5; 
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 95px;
+    margin-right: 95px;
+    margin-top: 20px;
+}
+.searchbar{
+    width: 20%;
+    background-color:#B784B7;
+    padding: 10px;
+    z-index: 1000; 
+}
+.searchbar input[type="text"] {
+    background-color:#B784B7;
+    width: 10%;
+    border: none;
+    border-radius: 5px;
+}
+.numberofposts{
+    font:24px JejuGothic;
+}
+.post-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 95px;
+    margin-right: 95px;
+    margin-top: 100px;
+}
+.single-post {
+    width: 560px; 
+    height: 460px; 
+    background-color: #ffffff; /* białe tło */
+    border: 1px solid #000000; 
+    padding: 20px;
+}
+.comments {
+    width: 260px; 
+    height: 460px; 
+    background-color: #ffd9d9; /* jasnoróżowe tło */
+    border: 1px solid #000000; /* czarna ramka */
+    padding: 20px;
+}
+.post{
+    background-color:#D9D9D9;
+    width: 260px; 
+    height: 260px; 
+}
+
+h2{
+    font:20px JejuGothic;
+    color: #333;
+}
+p{
+    font:20px Jaldi;
+    color: #333;
+}
+table {
+    border-collapse: separate;
+    border-spacing: 70px;
+    padding-right: 95px;
+    padding-left: 95px;
+    padding-bottom: 100px;
+}
+
+#posts td {
+    width: 260px;
+    height: 230px;
+    background-color: #D9D9D9;
+    border: 1px solid #ddd;
+}
+
+#albums td {
+    width: 260px;
+    height: 230px;
+    background-color: #92C952;
+    border: 1px solid #ddd;
+}
+
+label[for="title"] {
+    font-size: 44px;
+}
+label[for="writtenby"] {
+    font-size: 10px;
+}
+label[for="body"] {
+    font-size: 20px;
+}
+>>>>>>> posts-page:static/style.css
