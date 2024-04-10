@@ -13,30 +13,14 @@
     </div>
 
     <table id="albums">
+        {% for row in range(0,g.rows) %}
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            {% for column in range(0, 4 if row<g.rows-1 else g.columns) %}
+                <td><a href="{{g.albums[row*4+column].id}}/photos">{{g.albums[row*4+column].title}}</a></td>
+            {% endfor %}
         </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        {% endfor %}
+
     </table>
 </body>
 </html>
