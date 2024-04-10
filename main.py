@@ -1,14 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, g
+from albums import albums_bp
 
 app = Flask(__name__)
+app.register_blueprint(albums_bp)
+
 
 @app.route('/')
 def home():
     return render_template('index.html')
 
-@app.route('/albums')
-def albums():
-    return render_template('albums.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+
+

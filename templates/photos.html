@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='gallery.css') }}" type="text/css" />
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}">Posts</a>
+        <a href="{{ url_for('albums.albums') }}">Albums</a>
+    </div>
+    <div style="text-align: right">
+        <span>
+            Ilość pokazywanych zdjęć:
+        </span>
+        <input type='number' min='1' max='50' value='10'>
+    </div>
+    {% for photo in g.photos %}
+    <div class="gallery">
+      <a target="_blank" href="{{photo.url}}">
+        <img src="{{photo.thumbnailUrl}}" alt="{{photo.title}}" width="600" height="400">
+      </a>
+      <div class="desc">{{photo.title}}</div>
+    </div>
+    {% endfor %}
+
+</body>
+</html>
