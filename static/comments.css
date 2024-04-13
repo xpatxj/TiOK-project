@@ -1,0 +1,35 @@
+.comments {
+    width: 260px;
+    height: 460px;
+    background-color: #ffd9d9; /* jasnoróżowe tło */
+    border: 1px solid #000000; /* czarna ramka */
+    padding: 20px;
+    padding-right:0;
+}
+.comments-container{
+    overflow: auto;
+    height: 95%;
+}
+.comment{
+    border: 1px solid #808080;
+    margin-bottom: 1em;
+    margin-right: 20px;
+}
+.comment-title{
+    font-weight: bold;
+}
+
+.comment-body{
+    padding: 0.5em;
+    font-style: italic;
+}
+
+.comment-email{
+    text-align: end;
+    font-size: 80%;
+}
+
+.comments span{
+    padding-bottom:1em;
+    display: block;
+}

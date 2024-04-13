@@ -5,20 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Post</title>
    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='comments.css') }}" type="text/css" />
 </head>
 <body>
     <div class="navbar">
-        <a href="#">Posts</a>
+        <a href="{{ url_for('home') }}">Posts</a>
         <a href="{{ url_for('albums') }}">Albums</a>
     </div>
     <div class="post-container">
         <div class="single-post">
-            <label for="title">Title </label><br>
-            <label for="writtenby">Written by: </label><br>
-            <label for="body">Body </label>
+            <div class="post-title">{{post.title}} </div><br>
+            <div class="post-written-by">Written by: {{user.name}} </div><br>
+            <div class="post-body">{{post.body}}</div>
         </div>
         <div class="comments">
-            <label for="comments">Comments</label><br>
+            <span>Comments</span>
+            <div class="comments-container">
+                {% for comment in comments %}
+                <div class="comment">
+                    <div class="comment-title">{{comment.name}}</div>
+                    <div class="comment-body">{{comment.body}}</div>
+                    <div class="comment-email">{{comment.email}}</div>
+                </div>
+                {% endfor %}
+            </div>
         </div> 
     </div>
 </body>
