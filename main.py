@@ -15,6 +15,13 @@ def home():
 
     return render_template('index.html', posts=posts)
 
+@app.route('/post/<post_id>')
+def post(post_id):
+    response = requests.get('https://jsonplaceholder.typicode.com/posts/%s'%(post_id))
+    post = response.json()
+
+    return render_template('post.html', post=post)
+
 @app.route('/albums')
 def albums():
     return render_template('albums.html')
