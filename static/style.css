@@ -5,14 +5,19 @@ body {
     font-family: Arial, sans-serif;
 }
 h2{
-    font:22px Jaldi;
+    font:22px Arial;
+    color: #000000;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
 }
+p{
+    font:20px Jaldi;
+    color: #333;
+} 
 .main {
     padding: 20px;
     margin: 20px;
-}
-p {
-    font:20px Jaldi;
 }
 .navbar {
     background-color: #B784B7;
@@ -95,14 +100,6 @@ p {
     height: 260px; 
 }
 
-h2{
-    font:20px JejuGothic;
-    color: #333;
-}
-p{
-    font:20px Jaldi;
-    color: #333;
-}
 table {
     border-collapse: separate;
     border-spacing: 70px;
