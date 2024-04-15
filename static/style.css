@@ -127,3 +127,8 @@ table {
 .single-post .post-body{
     font-size: 20px;
 }
+
+.align-right {
+    width:100%;
+    text-align:right;
+}

@@ -11,7 +11,11 @@
         <a href="{{ url_for('home') }}">Posts</a>
         <a href="#">Albums</a>
     </div>
-
+    <div class="container">
+        <div class="numberofitems align-right">
+            <span>Number of albums: {{ g.albums|length }}</span>
+        </div>
+    </div>
     <table id="albums">
         {% for row in range(0,g.rows) %}
         <tr>
