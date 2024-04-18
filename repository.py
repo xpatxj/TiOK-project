@@ -1,4 +1,5 @@
 import requests
+from flask import abort
 def get_posts():
     # Get posts from the API
     response = requests.get('https://jsonplaceholder.typicode.com/posts')
@@ -18,6 +19,17 @@ def get_post(post_id):
         return {}
 
 def get_albums():
-    return requests.get('https://jsonplaceholder.typicode.com/albums').json()
+    response = requests.get('https://jsonplaceholder.typicode.com/albums')
+    albums = response.json()
+    if not albums:
+        abort(404, description="No album found")
+    else:
+        return albums
+    
 def get_photos(album_id):
-    return requests.get('https://jsonplaceholder.typicode.com/photos?albumId=%s' %(album_id)).json()
+    response = requests.get('https://jsonplaceholder.typicode.com/photos?albumId=%s' %(album_id))
+    photos = response.json()
+    if not photos:
+        abort(404, description="No photos found")
+    else:
+        return photos

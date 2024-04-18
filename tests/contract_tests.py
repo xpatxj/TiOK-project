@@ -44,6 +44,27 @@ class TestContract(unittest.TestCase):
         response = self.client.get('/albums/1/photos')
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'Test Photo', response.data)
+
+    @patch('repository.get_post')
+    def test_post_not_found(self, mock_get_post):
+        mock_get_post.return_value = {}
+        response = self.client.get('/post/999')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'Post not found', response.data)
+
+    @patch('repository.get_albums')
+    def test_albums_not_found(self, mock_get_albums):
+        mock_get_albums.return_value = []
+        response = self.client.get('/albums/')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'No albums found', response.data)
+
+    @patch('repository.get_photos')
+    def test_photos_not_found(self, mock_get_photos):
+        mock_get_photos.return_value = []
+        response = self.client.get('/albums/999/photos')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'No photos found', response.data)
         
 if __name__ == '__main__':
     unittest.main()
