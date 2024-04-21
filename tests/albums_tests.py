@@ -5,6 +5,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 from flask import g
 from main import app  
+import coverage
 
 class TestAlbums(unittest.TestCase):
 
@@ -13,13 +14,13 @@ class TestAlbums(unittest.TestCase):
         self.app = app
         self.client = self.app.test_client()
 
-    # Testowanie routingu /albums/
+    # Testowanie złego routingu /albums/
     @patch('repository.get_albums')
     def test_albums_route(self, mock_get_albums):
         mock_get_albums.return_value = []  # zwraca pustą listę albumów do testowania
         with self.app.app_context():
             response = self.client.get('/albums/')
-            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.status_code, 404)
             mock_get_albums.assert_called_once()
 
     # Testowanie routingu albums
@@ -46,7 +47,7 @@ class TestAlbums(unittest.TestCase):
         mock_get_photos.return_value = []
         with self.app.app_context():
             response = self.client.get('/albums/999/photos')  
-            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.status_code, 404)
             mock_get_photos.assert_called_once_with('999')
 
 

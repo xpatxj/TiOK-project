@@ -5,6 +5,7 @@ import unittest
 from unittest.mock import patch
 from main import app
 from repository import get_posts, get_post, get_albums, get_photos
+import coverage
 
 class TestContract(unittest.TestCase):
     def setUp(self):
