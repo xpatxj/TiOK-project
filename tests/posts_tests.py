@@ -5,7 +5,6 @@ import unittest
 from unittest.mock import patch, MagicMock
 from flask import g
 from main import app
-import coverage
 
 class TestPosts(unittest.TestCase):
 
@@ -41,7 +40,6 @@ class TestPosts(unittest.TestCase):
             response = self.client.get('/post/999')
             self.assertEqual(response.status_code, 404)
             mock_get.assert_called_once_with('999')
-
 
 if __name__ == '__main__':
     unittest.main()
