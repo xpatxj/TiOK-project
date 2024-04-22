@@ -40,7 +40,7 @@ def post(post_id):
         logging.error(f'Error: {e}')
         abort(404, description="Error: %s" % e)
 
-@app.route("/posts/filter", methods=['POST'])
+@app.route("/filter", methods=['POST'])
 def filter_posts():
     try:
         if request.method == 'POST':
