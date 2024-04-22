@@ -38,9 +38,8 @@ class TestPosts(unittest.TestCase):
         mock_get.return_value = {}
         with self.app.app_context():
             response = self.client.get('/post/999')
-            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.status_code, 404)
             mock_get.assert_called_once_with('999')
-
 
 if __name__ == '__main__':
     unittest.main()
