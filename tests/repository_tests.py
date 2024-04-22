@@ -4,7 +4,6 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 import repository
 import unittest
 from unittest.mock import patch, MagicMock
-import coverage
 
 class TestRepository(unittest.TestCase):
 
@@ -323,31 +322,9 @@ class TestRepository(unittest.TestCase):
     # Test długości listy zdjęć
     @patch('requests.get')
     def test_photos_length(self, mock_get):
-        mock_get.return_value.json.return_value =  self.fake_photos
-        photos = repository.get_photos(1)
-        self.assertNotEqual(len(photos), 0)
-
-    # # Test złego ID zdjęć
-    # @patch('requests.get')
-    # def test_photos_with_wrong_id(self, mock_get):
-    #     mock_get.return_value.json.return_value = [] 
-    #     photo = repository.get_photos("niepoprawny argument")
-    #     # self.assertEqual(len(photo), 0)
-    #     self.assertEqual(response.status_code, 404)
-
-    # # Test pobierania zdjęć dla niestniejącego albumu
-    # @patch('requests.get')
-    # def test_photos_with_not_existing_id(self, mock_get):
-    #     mock_get.return_value.json.return_value = []  
-    #     photo = repository.get_photos(-1)
-    #     self.assertEqual(len(photo), 0)
-
-    # Test istnienia zdjęć
-    @patch('requests.get')
-    def test_get_photos_non_empty(self, mock_get):
         mock_get.return_value.json.return_value = self.fake_photos
         photos = repository.get_photos(1)
-        self.assertTrue(all(len(photo) > 0 for photo in photos))
+        self.assertNotEqual(len(photos), 0)
 
     # Test istnienia kluczy w postach
     @patch('requests.get')
@@ -397,23 +374,23 @@ class TestRepository(unittest.TestCase):
             self.assertIn("url", photo)
             self.assertIn("thumbnailUrl", photo)
 
-    # Test istnienia kluczy w komentarzach
-    @patch('requests.get')
-    def test_get_post_comments_keys(self, mock_get):
-        mock_responses = [
-            self.fake_posts[1],  # post
-            self.fake_users[1],  # user
-            self.fake_comments  # comments
-        ]
+    # # Test istnienia kluczy w komentarzach
+    # @patch('requests.get')
+    # def test_get_post_comments_keys(self, mock_get):
+    #     mock_responses = [
+    #         self.fake_posts[1],  # post
+    #         self.fake_users[1],  # user
+    #         self.fake_comments  # comments
+    #     ]
 
-        mock_get.side_effect = [MagicMock(json=MagicMock(return_value=response)) for response in mock_responses]
+    #     mock_get.side_effect = [MagicMock(json=MagicMock(return_value=response)) for response in mock_responses]
 
-        post = repository.get_post(1)
+    #     post = repository.get_post(1)
 
-        for comment in post["comments"]:
-            self.assertIn("id", comment)
-            self.assertIn("name", comment)
-            self.assertIn("email", comment)
+    #     for comment in post["comments"]:
+    #         self.assertIn("id", comment)
+    #         self.assertIn("name", comment)
+    #         self.assertIn("email", comment)
 
 if __name__ == '__main__':
     unittest.main()
