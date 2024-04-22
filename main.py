@@ -10,7 +10,7 @@ logging.basicConfig(filename='TiOK.log', encoding='utf-8', level=logging.DEBUG, 
 
 # Tworzenie wiadomości logów
 logging.debug('Omg super zdebugowało się!')
-logging.info('Jakaś nudna informacja')
+logging.info('Aplikacja wystartowała')
 logging.warning('To jest achtung.')
 logging.error('ERROR! ERROR! ERROR!')
 logging.critical('CRIIITICAL! CRIIITICAL! CRIIITICAL!')
