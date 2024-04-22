@@ -13,10 +13,13 @@
     </div>
     <div class="container">
         <div class="searchbar">
-            <label for="search">Filter from </label>
-            <input type="text" id="search1" placeholder="...">
-            <label for="date">to</label>
-            <input type="text" id="search2" placeholder="...">
+            <form action="{{ url_for('filter_posts') }}" method="POST">
+                <label for="search">Filter from </label>
+                <input type="text" name="range_left" placeholder="...">
+                <label for="date">to</label>
+                <input type="text" name="range_right" placeholder="...">
+                <button type="submit">Filtruj</button>
+            </form>
         </div>
         <div class="numberofitems">
             <label for="number">Number of posts: {{ posts|length }}</label>

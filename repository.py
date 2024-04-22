@@ -46,3 +46,21 @@ def get_photos(album_id):
         logging.error(f'No photos found')
     else:
         return photos
+
+def get_posts_range(range_left, range_right):
+    # Get posts from the API
+    try:
+        posts=get_posts()
+        filtered_posts=[]
+        logging.info("Pętla")
+        for post in posts:
+            logging.info(f'Długość body:{len(post["body"])}')
+            logging.info(f'Range left: {range_left}/{len(post["body"]) >= range_left}')
+            logging.info(f'Range right: {range_right}')
+
+            if(len(post["body"])>=range_left and len(post["body"])<=range_right):
+                filtered_posts.append(post)
+        return filtered_posts
+    except Exception as e:
+        abort(500, description="Error: %s" % e)
+        logging.error(f'Error: {e}')
