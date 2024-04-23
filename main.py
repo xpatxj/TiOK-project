@@ -67,7 +67,7 @@ def filter_posts():
         abort(404, description="Method not found")
     except Exception as e:
         logging.error(f'Error: {e}')
-        return 'Error'
+        abort(404, description="Error: %s" % e)
 
 if __name__ == '__main__':
     app.run(debug=True)

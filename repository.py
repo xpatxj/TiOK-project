@@ -9,8 +9,8 @@ def get_posts():
         posts = response.json()
         return posts
     except Exception as e:
-        abort(500, description="Error: %s" % e)
         logging.error(f'Error: {e}')
+        abort(500, description="Error: %s" % e)
 
 def get_post(post_id):
     try:
@@ -25,16 +25,16 @@ def get_post(post_id):
         else:
             return {}
     except Exception as e:
-        abort(500, description="Error: %s" % e)
         logging.error(f'Error: {e}')
+        abort(500, description="Error: %s" % e)
 
 
 def get_albums():
     response = requests.get('https://jsonplaceholder.typicode.com/albums')
     albums = response.json()
     if not albums:
-        abort(404, description="No album found")
         logging.error(f'No album found')
+        abort(404, description="No album found")
     else:
         return albums        
     
@@ -42,8 +42,8 @@ def get_photos(album_id):
     response = requests.get('https://jsonplaceholder.typicode.com/photos?albumId=%s' %(album_id))
     photos = response.json()
     if not photos:
-        abort(404, description="No photos found")
         logging.error(f'No photos found')
+        abort(404, description="No photos found")
     else:
         return photos
 
@@ -62,5 +62,5 @@ def get_posts_range(range_left, range_right):
                 filtered_posts.append(post)
         return filtered_posts
     except Exception as e:
-        abort(500, description="Error: %s" % e)
         logging.error(f'Error: {e}')
+        abort(500, description="Error: %s" % e)

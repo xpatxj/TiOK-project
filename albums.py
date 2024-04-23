@@ -31,5 +31,6 @@ def photos(album_id):
         else:
           return render_template('photos.html')
     except Exception as e:
-        abort(404, description="Error: %s" % e)
         logging.error(f'Error: {e}')
+        abort(404, description="Error: %s" % e)
+        
