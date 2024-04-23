@@ -13,8 +13,6 @@ class TestContract(unittest.TestCase):
         self.app = app
         self.client = self.app.test_client()
 
-
-
     @patch('repository.get_posts')
 
     def test_home(self, mock_get_posts):
@@ -166,6 +164,31 @@ class TestContract(unittest.TestCase):
         assert response.headers["Content-Type"] == "application/json; charset=utf-8"
         photos = response.json()
         assert photos[0] == expected_photo_id1
+
+    @patch('repository.get_posts_range')
+    def test_filter_posts(self, mock_get_posts_range):
+        mock_get_posts_range.return_value = [{'id': 1, 'title': 'Test Post', 'body': 'Test Body'}]
+        response = self.client.post('/filter', data={'range_left': '0', 'range_right': '10'})
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Test Post', response.data)
+
+    @patch('repository.get_posts_range')
+    def test_filter_posts_invalid_range(self, mock_get_posts_range):
+        mock_get_posts_range.return_value = []
+        response = self.client.post('/filter', data={'range_left': 'a', 'range_right': 'b'})
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn(b'Test Post', response.data)
+
+    def test_filter_posts_invalid_method(self):
+        response = self.client.get('/filter')
+        self.assertEqual(response.status_code, 405)
+
+    @patch('repository.get_posts_range')
+    def test_filter_posts_server_error(self, mock_get_posts_range):
+        mock_get_posts_range.side_effect = Exception('Server error')
+        response = self.client.post('/filter', data={'range_left': '0', 'range_right': '10'})
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'Error: Server error', response.data)
 
 if __name__ == '__main__':
     unittest.main()
