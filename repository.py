@@ -1,12 +1,20 @@
 import requests
-from flask import abort
+from flask import abort, Flask
 import logging
 
+cached_posts = None
+cached_albums=None
+
 def get_posts():
+    global cached_posts
     # Get posts from the API
     try:
-        response = requests.get('https://jsonplaceholder.typicode.com/posts')
-        posts = response.json()
+        if cached_posts is None:
+            response = requests.get('https://jsonplaceholder.typicode.com/posts')
+            posts = response.json()
+            cached_posts = posts
+        else:
+            posts = cached_posts
         return posts
     except Exception as e:
         logging.error(f'Error: {e}')
@@ -28,16 +36,21 @@ def get_post(post_id):
         logging.error(f'Error: {e}')
         abort(500, description="Error: %s" % e)
 
-
 def get_albums():
-    response = requests.get('https://jsonplaceholder.typicode.com/albums')
-    albums = response.json()
+    global cached_albums
+    if cached_albums is None:
+        response = requests.get('https://jsonplaceholder.typicode.com/albums')
+        albums = response.json()
+        cached_albums = albums
+    else:
+        albums = cached_albums
+
     if not albums:
         logging.error(f'No album found')
         abort(404, description="No album found")
     else:
-        return albums        
-    
+        return albums
+
 def get_photos(album_id):
     response = requests.get('https://jsonplaceholder.typicode.com/photos?albumId=%s' %(album_id))
     photos = response.json()
@@ -46,7 +59,6 @@ def get_photos(album_id):
         abort(404, description="No photos found")
     else:
         return photos
-
 def get_posts_range(range_left, range_right):
     # Get posts from the API
     try:

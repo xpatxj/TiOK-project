@@ -2,6 +2,7 @@ from flask import Flask, render_template, g, abort, request
 from albums import albums_bp
 import repository
 import logging
+from werkzeug.middleware.profiler import ProfilerMiddleware
 
 # #przygotowanie loggera
 logger = logging.getLogger(__name__)
@@ -16,6 +17,10 @@ logging.critical('CRIIITICAL! CRIIITICAL! CRIIITICAL!')
 
 app = Flask(__name__)
 app.register_blueprint(albums_bp)
+
+#Włączenie profiler'a
+#Wyłączamy, bo nie wszyskie strony ładnie się ładują
+#app.wsgi_app = ProfilerMiddleware(app.wsgi_app)
 
 @app.route('/')
 def home():
@@ -71,3 +76,4 @@ def filter_posts():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
